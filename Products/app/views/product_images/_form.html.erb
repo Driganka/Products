@@ -1,0 +1,29 @@
+<%= form_with(model: @product_image) do |form| %>
+  <% if @product_image.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@product_image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+        <% @product_image.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+
+  <div>
+    <%= form.label :image_name, style: "display: block" %>
+    <%= form.text_field :image_name %>
+  </div>
+
+  <div>
+    <%= form.text_field :iimage, label: "Icon" %>
+    <%= form.hidden_field :iimage_cache %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
